@@ -6,6 +6,9 @@ const GlobalStyles = createGlobalStyle`
   *::before{
     box-sizing: border-box;
   }
+  p{
+    font-size: 0.8rem;
+  }
   img{
     display: block;
     max-width: 100%;

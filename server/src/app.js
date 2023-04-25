@@ -3,10 +3,12 @@ const app = express();
 const cors = require('cors');
 
 // Rutas
-
+const userRoutes = require('./routes/user.routes');
 // Middlewares para cliente
 app.use(cors());
 app.use(express.json());
+
+app.use('/api/user', userRoutes);
 
 // Uso de rutas
 
