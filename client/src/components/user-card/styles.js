@@ -20,7 +20,8 @@ const ContainerCard = styled.div`
 
 const UserImage = styled.img`
 	border-radius: 100%;
-	width: 35px;
+	width: 40px;
+	border: 2px solid ${({ active }) => (active ? '#5740ba' : '#C1523A')};
 `;
 
 const UserName = styled.h2`

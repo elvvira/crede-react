@@ -6,8 +6,10 @@ const ListContainer = styled.div`
 	margin-right: auto;
 	margin-left: auto;
 	padding-bottom: 1rem;
+	position: relative;
 	box-shadow: 1px 1px 10px 1px gray;
 `;
+
 const ContainerSearch = styled.div`
 	width: 100%;
 	border-top-right-radius: 1rem;

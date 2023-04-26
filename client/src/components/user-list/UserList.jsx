@@ -8,11 +8,15 @@ import {
 	StyledAddUser,
 	StyledInput
 } from './styled';
+import Delete from '../delete/Delete';
 
 const UserList = () => {
 	const [users, setUsers] = useState([]);
-	console.log(users);
+	const [showTrash, setShowTrash] = useState(false);
+	const [addUser, setAddUser] = useState(false);
+	const [currentUserId, setCurrentUserId] = useState('');
 
+	console.log(currentUserId);
 	useEffect(() => {
 		getAllUsers(setUsers);
 	}, []);
@@ -28,9 +32,20 @@ const UserList = () => {
 			</ContainerSearch>
 
 			{users.map(user => {
-				return <UserCard key={user.userId} {...user} />;
+				return (
+					<UserCard
+						key={user.userId}
+						user={user}
+						showTrash={showTrash}
+						setShowTrash={setShowTrash}
+						setCurrentUserId={setCurrentUserId}
+					/>
+				);
 			})}
-
+			<Delete
+				setShowTrash={setShowTrash}
+				currentUserId={currentUserId}
+			></Delete>
 			<StyledAddUser>
 				<IconUser src='images/user-plus-solid.svg' alt='' />
 				<p>Agregar</p>

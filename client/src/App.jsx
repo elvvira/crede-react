@@ -1,12 +1,14 @@
-import MainContainer from './components/main-container/MainContianer';
+import { BrowserRouter } from 'react-router-dom';
+
 import { GlobalStyles } from './styles/GlobalStyles';
+import Router from './router/Router';
 
 const App = () => {
 	return (
-		<>
+		<BrowserRouter>
 			<GlobalStyles />
-			<MainContainer></MainContainer>
-		</>
+			<Router />
+		</BrowserRouter>
 	);
 };
 

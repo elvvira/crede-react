@@ -1,11 +1,11 @@
-import UserList from '../user-list/UserList';
+import UserList from '../../components/user-list/UserList';
 import { StyledHeader } from './styled';
 
-const MainContainer = () => {
+const Home = () => {
 	return (
 		<StyledHeader>
 			<UserList />
 		</StyledHeader>
 	);
 };
-export default MainContainer;
+export default Home;

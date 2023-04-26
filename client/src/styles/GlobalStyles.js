@@ -6,6 +6,9 @@ const GlobalStyles = createGlobalStyle`
   *::before{
     box-sizing: border-box;
   }
+  h2{
+    margin: 2px;
+  }
   p{
     font-size: 0.8rem;
   }
@@ -32,6 +35,9 @@ const GlobalStyles = createGlobalStyle`
   button{
     text-decoration:none;
     border-style: solid;
+	border-color: transparent;
+  background-color: transparent;
+
   }
 `;
 

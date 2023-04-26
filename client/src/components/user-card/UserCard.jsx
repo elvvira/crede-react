@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
 	ButtonProperties,
 	ContainerButton,
@@ -6,10 +7,13 @@ import {
 	UserName
 } from './styles';
 
-const UserCard = ({ name, email, profileImage, active }) => {
+const UserCard = ({ user, setShowTrash, setCurrentUserId }) => {
+	const navigate = useNavigate();
+
+	const { name, email, profileImage, active } = user;
 	return (
 		<ContainerCard>
-			<UserImage src={profileImage} alt='' />
+			<UserImage active={active} src={profileImage} alt='' />
 			<UserName>{name}</UserName>
 			<div>
 				<p>{active ? 'Active' : 'Inactive'}</p>
@@ -17,14 +21,29 @@ const UserCard = ({ name, email, profileImage, active }) => {
 			<p>{email}</p>
 			<ContainerButton>
 				<ButtonProperties>
-					<img src='images/pen-to-square-solid.svg' alt='' />
+					<img
+						onClick={() => navigate('/edit', { state: { userData: user } })}
+						src='images/pen-to-square-solid.svg'
+						alt=''
+					/>
 				</ButtonProperties>
 
 				<ButtonProperties>
-					<img src='images/trash-solid.svg' alt='' />
+					<img
+						onClick={() => {
+							setShowTrash(true);
+							setCurrentUserId(user.userId);
+						}}
+						src='images/trash-solid.svg'
+						alt=''
+					/>
 				</ButtonProperties>
 				<ButtonProperties>
-					<img src='images/circle-info-solid.svg' alt='' />
+					<img
+						onClick={() => navigate('/info', { state: { userData: user } })}
+						src='images/circle-info-solid.svg'
+						alt=''
+					/>
 				</ButtonProperties>
 			</ContainerButton>
 		</ContainerCard>
