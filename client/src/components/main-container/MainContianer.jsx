@@ -1,10 +1,11 @@
 import UserList from '../user-list/UserList';
+import { StyledHeader } from './styled';
 
 const MainContainer = () => {
 	return (
-		<div>
+		<StyledHeader>
 			<UserList />
-		</div>
+		</StyledHeader>
 	);
 };
 export default MainContainer;

@@ -12,6 +12,8 @@ const GlobalStyles = createGlobalStyle`
   img{
     display: block;
     max-width: 100%;
+    width: 20px;
+    
   }
   body{
     margin: 0;
@@ -26,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
+  }
+  button{
+    text-decoration:none;
+    border-style: solid;
   }
 `;
 

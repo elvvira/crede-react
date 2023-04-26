@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import UserCard from '../user-card/UserCard';
-import { ListContainer } from './styled';
+import {
+	ContainerSearch,
+	IconUser,
+	ListContainer,
+	Search,
+	StyledAddUser,
+	StyledInput
+} from './styled';
 
 const UserList = () => {
 	const [users, setUsers] = useState([]);
@@ -13,9 +20,21 @@ const UserList = () => {
 
 	return (
 		<ListContainer>
+			<ContainerSearch>
+				<Search>
+					<StyledInput type='text' name='' id='' placeholder='Buscar...' />
+					<img src='images/magnifying-glass-solid.svg' alt='' />
+				</Search>
+			</ContainerSearch>
+
 			{users.map(user => {
 				return <UserCard key={user.userId} {...user} />;
 			})}
+
+			<StyledAddUser>
+				<IconUser src='images/user-plus-solid.svg' alt='' />
+				<p>Agregar</p>
+			</StyledAddUser>
 		</ListContainer>
 	);
 };
