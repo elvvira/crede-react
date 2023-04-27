@@ -9,6 +9,7 @@ import {
 	StyledInput
 } from './styled';
 import Delete from '../delete/Delete';
+import AddUser from '../add-user/AddUser';
 
 const UserList = () => {
 	const [users, setUsers] = useState([]);
@@ -43,12 +44,18 @@ const UserList = () => {
 				);
 			})}
 			<Delete
+				showTrash={showTrash}
 				setShowTrash={setShowTrash}
 				currentUserId={currentUserId}
 			></Delete>
-			<StyledAddUser>
+			<StyledAddUser
+				onClick={() => {
+					setAddUser(true);
+				}}
+			>
 				<IconUser src='images/user-plus-solid.svg' alt='' />
 				<p>Agregar</p>
+				<AddUser addUser={addUser} setAddUser={setAddUser}></AddUser>
 			</StyledAddUser>
 		</ListContainer>
 	);

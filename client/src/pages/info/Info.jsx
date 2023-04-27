@@ -10,7 +10,6 @@ import BackContainer from '../../components/back-container/BackContainer';
 
 const Info = () => {
 	const { state } = useLocation();
-	console.log(state);
 	return (
 		<StyledHeader>
 			<InfoContainer>

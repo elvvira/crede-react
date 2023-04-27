@@ -7,7 +7,7 @@ const StyledEdit = styled.div`
 	padding-top: 2rem;
 `;
 const EditContainer = styled.div`
-	width: 90%;
+	width: 40%;
 	height: 300px;
 	border-radius: 1rem;
 	background-color: white;
@@ -25,5 +25,34 @@ const ContainerHeader = styled.div`
 	margin-bottom: 1rem;
 	display: flex;
 `;
-
-export { StyledEdit, EditContainer, ContainerHeader };
+const EditDisplay = styled.div`
+	display: flex;
+	justify-content: center;
+`;
+const EditImageUser = styled.img`
+	width: 80%;
+	border-radius: 2rem;
+	border: 5px solid gray;
+	margin-bottom: 0.5rem;
+`;
+const Button = styled.button`
+	border: 1px solid gray;
+	color: white;
+	border-radius: 0.5rem;
+	margin-left: 0.5rem;
+`;
+const ButtonChange = styled(Button)`
+	background-color: #5740ba;
+`;
+const ButtonGenerate = styled(Button)`
+	background-color: gray;
+`;
+export {
+	StyledEdit,
+	EditContainer,
+	ContainerHeader,
+	EditDisplay,
+	EditImageUser,
+	ButtonChange,
+	ButtonGenerate
+};

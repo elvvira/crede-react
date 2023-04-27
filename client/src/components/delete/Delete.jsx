@@ -6,7 +6,7 @@ import {
 	Message
 } from './styles';
 
-const Delete = ({ setShowTrash, currentUserId }) => {
+const Delete = ({ showTrash, setShowTrash, currentUserId }) => {
 	return (
 		<ContainerTrash showTrash={showTrash}>
 			<Message>¿Estás seguro? Esta acción no tiene vuelta atrás</Message>
@@ -25,13 +25,9 @@ const fetchData = async (url, ...options) => {
 };
 
 const deleteUser = async currentUserId => {
-	const data = await fetchData(
-		`http://localhost:3000/api/user/${currentUserId}`,
-		{
-			method: 'DELETE'
-		}
-	);
-	setUsers(data);
+	await fetchData(`http://localhost:3000/api/user/${currentUserId}`, {
+		method: 'DELETE'
+	});
 };
 
 export default Delete;
