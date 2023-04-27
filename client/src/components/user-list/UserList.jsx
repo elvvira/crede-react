@@ -9,7 +9,7 @@ import {
 	StyledInput
 } from './styled';
 import Delete from '../delete/Delete';
-import AddUser from '../add-user/AddUser';
+import AddUserElement from '../add-user/AddUserElement';
 
 const UserList = () => {
 	const [users, setUsers] = useState([]);
@@ -17,10 +17,10 @@ const UserList = () => {
 	const [addUser, setAddUser] = useState(false);
 	const [currentUserId, setCurrentUserId] = useState('');
 
-	console.log(currentUserId);
 	useEffect(() => {
 		getAllUsers(setUsers);
 	}, []);
+
 	if (users.length === 0) return <p>wait...</p>;
 
 	return (
@@ -31,7 +31,6 @@ const UserList = () => {
 					<img src='images/magnifying-glass-solid.svg' alt='' />
 				</Search>
 			</ContainerSearch>
-
 			{users.map(user => {
 				return (
 					<UserCard
@@ -43,11 +42,14 @@ const UserList = () => {
 					/>
 				);
 			})}
+
 			<Delete
 				showTrash={showTrash}
 				setShowTrash={setShowTrash}
 				currentUserId={currentUserId}
+				setUsers={setUsers}
 			></Delete>
+
 			<StyledAddUser
 				onClick={() => {
 					setAddUser(true);
@@ -55,8 +57,8 @@ const UserList = () => {
 			>
 				<IconUser src='images/user-plus-solid.svg' alt='' />
 				<p>Agregar</p>
-				<AddUser addUser={addUser} setAddUser={setAddUser}></AddUser>
 			</StyledAddUser>
+			{addUser && <AddUserElement setAddUser={setAddUser}></AddUserElement>}
 		</ListContainer>
 	);
 };

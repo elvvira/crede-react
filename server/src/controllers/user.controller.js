@@ -46,7 +46,68 @@ controller.createUser = (req, res) => {
 
     fs.writeFile(usersFile, JSON.stringify(jsonData), err => {
       if (err) return res.status(500).send({ message: 'error' });
-      res.end();
+      res.send(jsonData);
+    });
+  });
+};
+
+controller.deleteUser = (req, res) => {
+  fs.readFile(usersFile, (err, data) => {
+    if (err)
+      return res.status(500).send({ message: 'Error al leer el archivo' });
+    const jsonData = JSON.parse(data);
+
+    const userIdSelect = jsonData.find(user => {
+      return user.userId === req.params.id;
+    });
+
+    const positionArray = jsonData.findIndex(user => user === userIdSelect);
+
+    jsonData.splice(positionArray, 1);
+
+    if (positionArray === -1) {
+      return res.status(409).send({ message: 'Error' });
+    }
+    fs.writeFile(usersFile, JSON.stringify(jsonData), err => {
+      if (err) return res.status(500).send({ message: 'error' });
+      res.send(jsonData);
+    });
+  });
+};
+controller.changeUser = (req, res) => {
+  fs.readFile(usersFile, (err, data) => {
+    if (err)
+      return res.status(500).send({ message: 'Error al leer el archivo' });
+    const jsonData = JSON.parse(data);
+
+    let userIdSelect = jsonData.find(user => {
+      return user.userId === req.params.id;
+    });
+
+    const positionArray = jsonData.findIndex(user => user === userIdSelect);
+
+    userIdSelect = { ...userIdSelect, ...req.body };
+
+    if (req.body.email) {
+      const userCheck = jsonData.some(user => {
+        return user.email === req.body.email;
+      });
+
+      if (userCheck) {
+        return res
+          .status(409)
+          .send({ message: 'Error el email ya existe PON OTRO' });
+      }
+    }
+
+    jsonData[positionArray] = userIdSelect;
+
+    if (positionArray === -1) {
+      return res.status(409).send({ message: 'Error' });
+    }
+    fs.writeFile(usersFile, JSON.stringify(jsonData), err => {
+      if (err) return res.status(500).send({ message: 'error' });
+      res.send(jsonData);
     });
   });
 };

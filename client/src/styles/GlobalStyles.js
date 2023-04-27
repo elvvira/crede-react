@@ -11,6 +11,8 @@ const GlobalStyles = createGlobalStyle`
   }
   p{
     font-size: 0.8rem;
+    margin: 12px;
+    margin-left: 0;
   }
   img{
     display: block;

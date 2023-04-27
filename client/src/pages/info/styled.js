@@ -7,7 +7,7 @@ const StyledHeader = styled.div`
 	padding-top: 2rem;
 `;
 const InfoContainer = styled.div`
-	width: 40%;
+	width: 50%;
 	height: 300px;
 	border-radius: 1rem;
 	background-color: white;

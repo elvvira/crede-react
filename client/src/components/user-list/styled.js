@@ -35,7 +35,7 @@ const StyledInput = styled.input`
 	border-color: transparent;
 	width: 200px;
 `;
-const StyledAddUser = styled.button`
+const StyledAddUser = styled.div`
 	margin-top: 1rem;
 	width: 20%;
 	margin-right: auto;

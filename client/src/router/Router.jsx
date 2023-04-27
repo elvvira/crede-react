@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Info from '../pages/info/Info';
 import Home from '../pages/home/Home';
-import Delete from '../components/delete/Delete';
 import Edit from '../pages/edit/Edit';
 
 const Router = () => {
